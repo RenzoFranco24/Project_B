@@ -13,7 +13,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
   <html>
    <head>
        <title>Emma's Marvel Blog</title>
-       <link rel="stylesheet" href="emmas_website_colors.css">
+       <link rel="stylesheet" href="Marvel_Pookies.css">
    </head>
    <body>
     <h1>
