@@ -20,11 +20,8 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
    </head>
    <body>
     <h1>
-        Welcome to Renzo and Emma's Marvel Information Blog!
+        Welcome to the information section on Marvel movies!
     </h1>
-<h2>
-    We have plenty of information for anything Marvel!!!
-</h2>
 <?php
 echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
@@ -120,3 +117,4 @@ src="https://www.youtube.com/embed/8laEleUOoUM">
 </iframe>
 </body>
  </html>
+
