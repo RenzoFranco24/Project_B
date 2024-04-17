@@ -15,13 +15,17 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
 ?>
   <html>
    <head>
-       <title>Emma's Marvel Blog</title>
+       <title>Renzo and Emma's Marvel Blog</title>
        <link rel="stylesheet" href="Marvel_Pookies.css">
    </head>
    <body>
     <h1>
         Welcome to the information section on Marvel movies!
     </h1>
+    <h2>
+ This page gives you all the details on Marvel movies - and our (Renzo and Emma's) favorites, and why.
+ </h2>
+
 <?php
 echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
@@ -30,6 +34,13 @@ Here is Renzo's favorite Marvel movie:
 Deadpool (2016). Rated R (don't let your kids watch it!)</p>
 
 <img style='border: 3px solid #660033' img src = "https://i.ebayimg.com/images/g/qYYAAOSw1odgo4~~/s-l1600.jpg" alt="Deadpool movie poster." width = "350" height = "500">
+
+ <p>
+Here is Emma's favorite Marvel movie:
+Captain America: The Winter Soldier (2014). Rated PG-13 (your kids can watch this one!)</p>
+<img style='border: 3px solid #660033' img src = "https://m.media-amazon.com/images/M/MV5BYzMyN2I0NjMtYmZhZS00MWJkLWE1MTktNGM2ZDhmNDE1ZDc0XkEyXkFqcGdeQXVyNDg2NzE0MjE@._V1_.jpg" alt="Captain America: The Winter Soldier movie poster." width = "350"     height = "500">
+
+
 <?php
 include "credentials.php";
 $connection = mysqli_connect($servername, $username, $password, $db_name);

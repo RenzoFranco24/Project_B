@@ -15,7 +15,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
 ?>
   <html>
    <head>
-       <title>Emma's Marvel Blog</title>
+       <title>Renzo and Emma's Marvel Blog</title>
        <link rel="stylesheet" href="Marvel_Pookies.css">
    </head>
    <body>
