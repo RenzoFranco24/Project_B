@@ -20,7 +20,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
    </head>
    <body>
     <h1>
-        Welcome to the information section on Marvel movies!
+        Welcome to the information section on Marvel superheroes!
     </h1>
 <?php
 echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
@@ -73,26 +73,28 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT Movie_ID, Title, Released_date, Duration_minutes, Box_office, Director FROM Movies";
+$sql = "SELECT *  FROM Superheroes";
 $result = $connection->query($sql);
 
 if ($result) {
     echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
-        echo "<th>ID</th>";
-        echo "<th>Movie Title</th>";
-        echo "<th>Date Released</th>";
-        echo "<th>Run Time</th>";
-        echo "<th>Box Office Reveneue</th>";
-        echo "<th>Director(s)</th>";        
+        echo "<th>Superhero_ID</th>";
+        echo "<th>Name</th>";
+        echo "<th>Alias</th>";
+        echo "<th>Place_of_origin</th>";
+        echo "<th>Main_villain</th>";
+        echo "<th>First_appearance_date</th>";
+        echo "<th>First_appearance_comic</th>";        
         echo "</tr>";    
 
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['Movie_ID']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Title']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Released_date']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Duration_minutes']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Box_office']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Director']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Superhero_ID']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Alias']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Place_of_origin']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Main_villain']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['First_appearance_comic']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['First_appearance_date']) . "</td>";
         echo "</tr>";
     }
 ?>
