@@ -25,45 +25,11 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
 <?php
 echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
-
-<a href = "https://www.reddit.com/r/marvelstudios/comments/1ac9qi4/new_hq_daredevil_born_again_set_pics/">here. </a></p>
-<img style='border: 3px solid #660033' img src = "https://preview.redd.it/new-hq-daredevil-born-again-set-pics-v0-xs7u1gt67zec1.jpg?width=1080&crop=smart&auto=webp&s=aee671772af9d9758d4f351a9993c2ce3d6e71ae" alt="Charlie Cox as Matt Murdock.">
-<img style='border: 3px solid #660033' img src = "https://preview.redd.it/new-hq-daredevil-born-again-set-pics-v0-hr54e3677zec1.jpg?width=1080&crop=smart&auto=webp&s=d92646666955bd1e53d814c5668c1364b1efc3f8" alt="Charlie Cox as Matt Murdock>">
-
 <p>
-Great, you scrolled down! You must (somewhat) care about my opinion! <br></br>
-This is my tier list of Daredevil characters... might be a hot take. </p>
-<?php
-$items = ["Matt Murdock", "Frank Castle", "Benjamin Poindexter", "Foggy Nelson", "Ray Nadeem", "Karen Page"];
+Here is Renzo's favorite Marvel movie:
+Deadpool (2016). Rated R (don't let your kids watch it!)</p>
 
-echo '<ol style="color: white;">';
-foreach ($items as $item) {
-    echo "<li>" . $item . "</li>"; 
-}
-echo "</ol>";
-?>
-
-<p> Here are my expectations... (and/or wants) </p>
-
-<?php
-
-function printList($items) {
-    echo '<ul style="color: white; list-style-type: square;">';
-    foreach ($items as $item) {
-        echo "<li>" . $item . "</li>";
-    }
-echo "</ul>";
-}
-$plotPoints = [
-    "Kingpin becomes the mayor - see what happens and how that impacts Karen, Foggy, and Matt.",
-    "Matt Dripdock (iykyk).",
-    "Have it tie into Spider-Man, since Kingpin is a villain of his.",
-    "Have White Tiger in it as Daredevil's new foe.",
-    "Have it be up to 13 episodes rather than the 18 they were planning for."
-];
-printList($plotPoints);
-?>
-<p>Here are some stats about various Marvel characters!</p>
+<img style='border: 3px solid #660033' img src = "https://i.ebayimg.com/images/g/qYYAAOSw1odgo4~~/s-l1600.jpg" alt="Deadpool movie poster." width = "350" height = "500">
 <?php
 include "credentials.php";
 $connection = mysqli_connect($servername, $username, $password, $db_name);
