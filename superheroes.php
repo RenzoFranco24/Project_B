@@ -78,6 +78,7 @@ $result = $connection->query($sql);
 
 if ($result) {
     //echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
+  echo "<table>";
         echo "<tr>";
         echo "<th>Superhero_ID</th>";
         echo "<th>Name</th>";
@@ -88,6 +89,7 @@ if ($result) {
         echo "<th>First_appearance_comic</th>";        
         echo "</tr>";    
 
+    while($row = mysqli_fetch_assoc($results)) {
         echo "<tr>";
         echo "<td>" . htmlspecialchars($row['Superhero_ID']) . "</td>";
         echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
@@ -98,6 +100,8 @@ if ($result) {
         echo "<td>" . htmlspecialchars($row['First_appearance_date']) . "</td>";
         echo "</tr>";
     }
+  echo "</table>";
+}
 ?>
 
 
