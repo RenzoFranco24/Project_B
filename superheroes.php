@@ -1,6 +1,5 @@
 <!doctype html>
 <?php
-/*
   $color = isset($_GET['color']) ? $_GET['color'] : 'red';
 
   $bg_color = isset($_GET['bg']) && $_GET['bg'] ? htmlspecialchars($_GET['bg']) : 'red';
@@ -8,9 +7,9 @@
 $text = isset($_GET['text']) && $_GET['text'] ? htmlspecialchars($_GET['text']) : 'white';
 $sort_order = isset($_GET['order']) && $_GET['order'] == 'asc' ? 'desc' : 'asc';
 $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
-*/
-?>
 
+
+?>
 <?php
     include "nav.php";
 ?>
@@ -74,13 +73,11 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT * FROM Superheroes";
+$sql = "SELECT *  FROM Superheroes";
 $result = $connection->query($sql);
 
 if ($result) {
     //echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
-  echo "<table>";
-        echo "<tr>";
         echo "<th>Superhero_ID</th>";
         echo "<th>Name</th>";
         echo "<th>Alias</th>";
@@ -90,20 +87,16 @@ if ($result) {
         echo "<th>First_appearance_comic</th>";        
         echo "</tr>";    
 
-    while($row = mysqli_fetch_assoc($results)) {
         echo "<tr>";
-        echo "<td>" . $row['Superhero_ID'] . "</td>";
-        echo "<td>" . $row['Name'] . "</td>";
-        echo "<td>" . $row['Alias'] . "</td>";
-        echo "<td>" . $row['Place_of_origin'] . "</td>";
-        echo "<td>" . $row['Main_villain']) . "</td>";
-        echo "<td>" . $row['First_appearance_comic'] . "</td>";
-        echo "<td>" . $row['First_appearance_date'] . "</td>";
+        echo "<td>" . htmlspecialchars($row['Superhero_ID']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Alias']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Place_of_origin']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Main_villain']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['First_appearance_comic']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['First_appearance_date']) . "</td>";
         echo "</tr>";
     }
-  echo "</table>";
-}
-  mysqli_close($connection);
 ?>
 
 
@@ -114,4 +107,3 @@ src="https://www.youtube.com/embed/8laEleUOoUM">
 </iframe>
 </body>
  </html>
-
