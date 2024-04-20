@@ -91,13 +91,13 @@ if ($result) {
 
     while($row = mysqli_fetch_assoc($results)) {
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['Superhero_ID']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Alias']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Place_of_origin']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Main_villain']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['First_appearance_comic']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['First_appearance_date']) . "</td>";
+        echo "<td>" . $row['Superhero_ID'] . "</td>";
+        echo "<td>" . $row['Name'] . "</td>";
+        echo "<td>" . $row['Alias'] . "</td>";
+        echo "<td>" . $row['Place_of_origin'] . "</td>";
+        echo "<td>" . $row['Main_villain']) . "</td>";
+        echo "<td>" . $row['First_appearance_comic'] . "</td>";
+        echo "<td>" . $row['First_appearance_date'] . "</td>";
         echo "</tr>";
     }
   echo "</table>";
