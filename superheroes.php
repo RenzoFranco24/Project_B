@@ -1,5 +1,6 @@
 <!doctype html>
 <?php
+/*
   $color = isset($_GET['color']) ? $_GET['color'] : 'red';
 
   $bg_color = isset($_GET['bg']) && $_GET['bg'] ? htmlspecialchars($_GET['bg']) : 'red';
@@ -7,9 +8,9 @@
 $text = isset($_GET['text']) && $_GET['text'] ? htmlspecialchars($_GET['text']) : 'white';
 $sort_order = isset($_GET['order']) && $_GET['order'] == 'asc' ? 'desc' : 'asc';
 $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
-
-
+*/
 ?>
+
 <?php
     include "nav.php";
 ?>
@@ -73,7 +74,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT *  FROM Superheroes";
+$sql = "SELECT * FROM Superheroes";
 $result = $connection->query($sql);
 
 if ($result) {
@@ -102,6 +103,7 @@ if ($result) {
     }
   echo "</table>";
 }
+  mysqli_close($connection);
 ?>
 
 
