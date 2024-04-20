@@ -78,6 +78,7 @@ $result = $connection->query($sql);
 
 if ($result) {
     //echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
+        echo "<tr>";
         echo "<th>Superhero_ID</th>";
         echo "<th>Name</th>";
         echo "<th>Alias</th>";
