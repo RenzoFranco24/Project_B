@@ -20,15 +20,11 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
    </head>
    <body>
     <h1>
-        Welcome to the information section on Marvel TV shows!
+        Welcome to the information section on Marvel superheroes!
     </h1>
 <?php
 echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
-
-<a href = "https://www.reddit.com/r/marvelstudios/comments/1ac9qi4/new_hq_daredevil_born_again_set_pics/">here. </a></p>
-<img style='border: 3px solid #660033' img src = "https://preview.redd.it/new-hq-daredevil-born-again-set-pics-v0-xs7u1gt67zec1.jpg?width=1080&crop=smart&auto=webp&s=aee671772af9d9758d4f351a9993c2ce3d6e71ae" alt="Charlie Cox as Matt Murdock.">
-<img style='border: 3px solid #660033' img src = "https://preview.redd.it/new-hq-daredevil-born-again-set-pics-v0-hr54e3677zec1.jpg?width=1080&crop=smart&auto=webp&s=d92646666955bd1e53d814c5668c1364b1efc3f8" alt="Charlie Cox as Matt Murdock>">
 
 <p>
 Great, you scrolled down! You must (somewhat) care about my opinion! <br></br>
@@ -73,35 +69,44 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT Movie_ID, Title, Released_date, Duration_minutes, Box_office, Director FROM Movies";
+$sql = "SELECT *  FROM TV_Shows";
 $result = $connection->query($sql);
 
-if ($result) {
-    echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
-        echo "<th>ID</th>";
-        echo "<th>Movie Title</th>";
-        echo "<th>Date Released</th>";
-        echo "<th>Run Time</th>";
-        echo "<th>Box Office Reveneue</th>";
-        echo "<th>Director(s)</th>";        
-        echo "</tr>";    
 
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['Movie_ID']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Title']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Released_date']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Duration_minutes']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Box_office']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Director']) . "</td>";
+if ($result) {
+    if ($result->num_rows > 0) {
+        echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
+        echo "<th>TV_Show_ID</th>";
+        echo "<th>Title</th>";
+        echo "<th>Release Date</th>";
+        echo "<th>Seasons</th>";
+        echo "<th>Episodes</th>";
+        echo "<th>Main Character</th>";
+        echo "<th>Creator</th>";
+        echo "<th>Comic based?</th>";
         echo "</tr>";
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($row['TV_Show_ID']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Title']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Released_date']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Seasons']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Episodes']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Main_character']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Creator']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Comic_based']) . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "No results found.";
     }
+} else {
+    echo "Error executing query: " . $connection->error;
+}
 ?>
 
-
-<img src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/daf86b9d-0a99-4ec1-af43-2061b31977f8/dfhok4m-a84abe75-a321-4b04-98a8-65f046d9bdc7.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RhZjg2YjlkLTBhOTktNGVjMS1hZjQzLTIwNjFiMzE5NzdmOFwvZGZob2s0bS1hODRhYmU3NS1hMzIxLTRiMDQtOThhOC02NWYwNDZkOWJkYzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.uP-1e863lVPQUQo9SCfJcYsn4dM8-0k9zSsdVnpneO8">
-<h2>Kingpin loves the Mets</h2>
-<iframe width="420" height = "315"
-src="https://www.youtube.com/embed/8laEleUOoUM">
 </iframe>
 </body>
  </html>
