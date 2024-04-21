@@ -4,12 +4,11 @@ include "credentials.php";
 
 if ($_SESSION['role'] == 'admin' && $_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
-    $new_content = $_POST['new_content'];
-    $sql = "UPDATE data SET content = ? WHERE id = ?";
+    $sql = "DELETE FROM data WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $new_content, $id);
+    $stmt->bind_param("i", $id);
     $stmt->execute();
-    echo "Data updated!";
+    echo "Data deleted!";
     $stmt->close();
     header("Location: dashboard.php");
 }

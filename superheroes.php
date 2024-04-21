@@ -69,38 +69,29 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT *  FROM Superheroes";
+$sql = "SELECT * FROM Superheroes";
 $result = $connection->query($sql);
 
-
 if ($result) {
-<<<<<<< HEAD
     if ($result->num_rows > 0) {
-        echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
-=======
-    //echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
->>>>>>> f42d5aa60e734dc1571ccb2a30690df0d4cfc9d5
-        echo "<th>Superhero_ID</th>";
-        echo "<th>Name</th>";
-        echo "<th>Alias</th>";
-        echo "<th>Place_of_origin</th>";
-        echo "<th>Main_villain</th>";
-        echo "<th>First_appearance_date</th>";
-        echo "<th>First_appearance_comic</th>";
-        echo "</tr>";
+        echo "<form action='update_superhero.php' method='post'>";
+        echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'>";
+        echo "<tr><th>Superhero_ID</th><th>Name</th><th>Alias</th><th>Place_of_origin</th><th>Main_villain</th><th>First_appearance_date</th><th>First_appearance_comic</th><th>Actions</th></tr>";
 
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . htmlspecialchars($row['Superhero_ID']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Alias']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Place_of_origin']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Main_villain']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['First_appearance_date']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['First_appearance_comic']) . "</td>";
+            echo "<td><input type='text' name='Name[" . $row['Superhero_ID'] . "]' value='" . htmlspecialchars($row['Name']) . "'></td>";
+            echo "<td><input type='text' name='Alias[" . $row['Superhero_ID'] . "]' value='" . htmlspecialchars($row['Alias']) . "'></td>";
+            echo "<td><input type='text' name='Place_of_origin[" . $row['Superhero_ID'] . "]' value='" . htmlspecialchars($row['Place_of_origin']) . "'></td>";
+            echo "<td><input type='text' name='Main_villain[" . $row['Superhero_ID'] . "]' value='" . htmlspecialchars($row['Main_villain']) . "'></td>";
+            echo "<td><input type='text' name='First_appearance_date[" . $row['Superhero_ID'] . "]' value='" . htmlspecialchars($row['First_appearance_date']) . "'></td>";
+            echo "<td><input type='text' name='First_appearance_comic[" . $row['Superhero_ID'] . "]' value='" . htmlspecialchars($row['First_appearance_comic']) . "'></td>";
+            echo "<td><button type='submit' name='update' value='" . $row['Superhero_ID'] . "'>Update</button></td>";
             echo "</tr>";
         }
         echo "</table>";
+        echo "</form>";
     } else {
         echo "No results found.";
     }
