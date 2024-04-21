@@ -25,6 +25,10 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
 <h2>
     We have plenty of information for anything Marvel!!!
 </h2>
+    
+    <h2>Some of our favorite characters</h2>
+    <img src="https://static.wikia.nocookie.net/marveldatabase/images/a/aa/Daredevil_Vol_6_21_Textless.jpg" height="150px">
+
 <?php
 echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
