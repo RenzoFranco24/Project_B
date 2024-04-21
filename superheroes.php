@@ -74,8 +74,12 @@ $result = $connection->query($sql);
 
 
 if ($result) {
+<<<<<<< HEAD
     if ($result->num_rows > 0) {
         echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
+=======
+    //echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
+>>>>>>> f42d5aa60e734dc1571ccb2a30690df0d4cfc9d5
         echo "<th>Superhero_ID</th>";
         echo "<th>Name</th>";
         echo "<th>Alias</th>";
@@ -108,4 +112,3 @@ if ($result) {
 </iframe>
 </body>
  </html>
-
