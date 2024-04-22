@@ -20,8 +20,11 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
    </head>
    <body>
     <h1>
-        Welcome to the information section on Marvel tv shows and movies (and how they relate)!
+        Welcome to the information section on Marvel tv shows and movies!
     </h1>
+    <h2>
+(how they relate and what characters are in them)
+</h2>
 <?php
 echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>

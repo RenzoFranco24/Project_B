@@ -22,48 +22,11 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
     <h1>
         Welcome to the information section on Marvel villains!
     </h1>
-<?php
-echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
-?>
-
-<a href = "https://www.reddit.com/r/marvelstudios/comments/1ac9qi4/new_hq_daredevil_born_again_set_pics/">here. </a></p>
-<img style='border: 3px solid #660033' img src = "https://preview.redd.it/new-hq-daredevil-born-again-set-pics-v0-xs7u1gt67zec1.jpg?width=1080&crop=smart&auto=webp&s=aee671772af9d9758d4f351a9993c2ce3d6e71ae" alt="Charlie Cox as Matt Murdock.">
-<img style='border: 3px solid #660033' img src = "https://preview.redd.it/new-hq-daredevil-born-again-set-pics-v0-hr54e3677zec1.jpg?width=1080&crop=smart&auto=webp&s=d92646666955bd1e53d814c5668c1364b1efc3f8" alt="Charlie Cox as Matt Murdock>">
-
 <p>
-Great, you scrolled down! You must (somewhat) care about my opinion! <br></br>
-This is my tier list of Daredevil characters... might be a hot take. </p>
-<?php
-$items = ["Matt Murdock", "Frank Castle", "Benjamin Poindexter", "Foggy Nelson", "Ray Nadeem", "Karen Page"];
-
-echo '<ol style="color: white;">';
-foreach ($items as $item) {
-    echo "<li>" . $item . "</li>"; 
-}
-echo "</ol>";
-?>
-
-<p> Here are my expectations... (and/or wants) </p>
-
-<?php
-
-function printList($items) {
-    echo '<ul style="color: white; list-style-type: square;">';
-    foreach ($items as $item) {
-        echo "<li>" . $item . "</li>";
-    }
-echo "</ul>";
-}
-$plotPoints = [
-    "Kingpin becomes the mayor - see what happens and how that impacts Karen, Foggy, and Matt.",
-    "Matt Dripdock (iykyk).",
-    "Have it tie into Spider-Man, since Kingpin is a villain of his.",
-    "Have White Tiger in it as Daredevil's new foe.",
-    "Have it be up to 13 episodes rather than the 18 they were planning for."
-];
-printList($plotPoints);
-?>
-<p>Here are some stats about various Marvel characters!</p>
+This page is all about the big bads from Marvel - including from the movies, TV shows, and comics! <br></br>
+PSA: Marvel needs to stop killing off their villains - let them live for longer than a movie or two!
+</p>
+<p>Here are some stats about various Marvel villains!</p>
 <?php
 include "credentials.php";
 $connection = mysqli_connect($servername, $username, $password, $db_name);
@@ -73,36 +36,71 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT Movie_ID, Title, Released_date, Duration_minutes, Box_office, Director FROM Movies";
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$sql = "SELECT * FROM Supervillains";
 $result = $connection->query($sql);
 
 if ($result) {
-    echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
-        echo "<th>ID</th>";
-        echo "<th>Movie Title</th>";
-        echo "<th>Date Released</th>";
-        echo "<th>Run Time</th>";
-        echo "<th>Box Office Reveneue</th>";
-        echo "<th>Director(s)</th>";        
-        echo "</tr>";    
+    if ($result->num_rows > 0) {
+        echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'>";
+         echo "<tr><th>ID</th><th>Name</th><th>Alias</th><th>Species</th><th>Delete</th></tr>";
 
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['Movie_ID']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Title']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Released_date']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Duration_minutes']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Box_office']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Director']) . "</td>";
-        echo "</tr>";
+
+while ($row = $result->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($row['Supervillain_ID']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['Alias']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['Species']) . "</td>";
+    echo "<td><a href='delete_villain.php?id=" . $row['Supervillain_ID'] . "' onclick='return confirm(\"Are you sure you want to delete this record?\");'>Delete</a></td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+        echo "</form>";
+    } else {
+        echo "No results found.";
     }
+} else {
+    echo "Error executing query: " . $connection->error;
+}
+?>
+
+<h3>Renzo and Emma's tier list of best Marvel villains</h3>
+<p><strong>Renzo</strong></p>
+<ol>
+    <li>Ultron</li>
+    <li>Thanos</li>
+    <li>Green Goblin</li>
+</ol>
+
+<p><strong>Emma</strong></p>
+<ol>
+    <li>Kingpin</li>
+    <li>Magneto</li>
+    <li>Erik Killmonger</li>
+</ol>
+
+<div class="villain_pic">
+    <img class="villain_eachPic" src="https://static.wikia.nocookie.net/ironman/images/d/d9/Ultron_EW_Poster.png" height="300px">
+    <img class="villain_eachPic" src="https://static.wikia.nocookie.net/marvelcinematicuniverse/images/5/52/Empire_March_Cover_IW_6_Textless.png" height="300px">
+    <img class="villain_eachPic" src="https://i.pinimg.com/originals/d9/ae/0e/d9ae0ee94871b6dea269e6f91b0b15b0.jpg" height="300px">
+    <img class="villain_eachPic" src="https://static.wikia.nocookie.net/heroes-and-villain/images/1/14/Wilson_Fisk.png" height="300px">
+    <img class="villain_eachPic" src="https://upload.wikimedia.org/wikipedia/en/4/49/Ultimate_X-Men_62.jpg" height="300px">
+    <img class="villain_eachPic" src="https://comicvine.gamespot.com/a/uploads/scale_medium/0/77/8859673-6100273820-Wakan.jpg" height="300px">
+</div>
+
+
+ <?php
+  echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
 
 
-<img src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/daf86b9d-0a99-4ec1-af43-2061b31977f8/dfhok4m-a84abe75-a321-4b04-98a8-65f046d9bdc7.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RhZjg2YjlkLTBhOTktNGVjMS1hZjQzLTIwNjFiMzE5NzdmOFwvZGZob2s0bS1hODRhYmU3NS1hMzIxLTRiMDQtOThhOC02NWYwNDZkOWJkYzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.uP-1e863lVPQUQo9SCfJcYsn4dM8-0k9zSsdVnpneO8">
-<h2>Kingpin loves the Mets</h2>
-<iframe width="420" height = "315"
-src="https://www.youtube.com/embed/8laEleUOoUM">
-</iframe>
+
 </body>
  </html>
-

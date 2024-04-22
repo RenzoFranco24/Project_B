@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <?php
 session_start();
 require_once "credentials.php";
@@ -36,10 +37,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 ?>
-
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="password" name="password"><br>
-    <input type="submit" value="Login">
-</form>
-
+<html>
+<head>
+    <link rel="stylesheet" href="Marvel_Pookies.css">
+</head>
+<body class="login_body">
+<div class="login_box">
+    <h2>Login</h2>
+    <p>Please enter your username and password</p>
+    <form class="login_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <br>
+        <input type="password" name="password" placeholder="Password">
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>

@@ -6,7 +6,7 @@ body, h1, h2, h3, p, ul {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #FFFF;
     padding: 20px;
     color: #333;
 }
@@ -17,7 +17,7 @@ h1 {
 
 nav ul {
     list-style: none;
-    background-color: #333;
+    background-color: #518cca;
     text-align: center;
     padding: 10px 0;
 }
@@ -45,31 +45,55 @@ nav ul li a.active {
     padding: 20px;
 }
 
-.button {
+button {
     display: inline-block;
     padding: 10px 15px;
     text-decoration: none;
     color: #fff;
-    background-color: #007bff;
+    background-color: #e23636;
     border-radius: 5px;
     border: none;
     cursor: pointer;
 }
 
-.button:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #518cca;
 }
 
-.button.delete {
+button.delete {
     background-color: #dc3545;
 }
 
-.button.delete:hover {
+button.delete:hover {
     background-color: #bd2130;
 }
 
-form {
-    margin-top: 2em;
+.login_body {
+    background-image: url("https://www.komar.de/media/cms/fileadmin/user_upload/Category/Fototapeten/Marvel/komar-fototapeten-marvel.jpg");
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_box {
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 50px;
+    max-width: 400px;
+    width: 100%;  
+}
+
+.login_box h2{ 
+    font-size: 22px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.login_form {
+    margin-top: 20px;
 }
 
 label {
@@ -79,13 +103,14 @@ label {
 
 input[type="text"],
 input[type="password"],
-input[type="date"],
-select {
+button {
     width: 100%;
     padding: 10px;
     margin-bottom: 1em;
     border-radius: 5px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 input[type="submit"] {
@@ -112,3 +137,14 @@ footer {
     width: 100%;
 }
 
+.villain_pic {
+    display: flex;
+    justify-content: center;
+}
+
+.villain_eachPic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
