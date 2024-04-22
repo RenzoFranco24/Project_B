@@ -31,45 +31,42 @@ PSA: Marvel needs to stop killing off their villains - let them live for longer 
 include "credentials.php";
 $connection = mysqli_connect($servername, $username, $password, $db_name);
 
-if (mysqli_connect_errno()) {
-    echo "Failed." . mysqli_connect_error();
-    exit();
-}
+ if (mysqli_connect_errno()) {
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+          exit();
+      }
+ 
+      $sql = "SELECT * FROM Supervillains";
+      $result = $connection->query($sql);
+ 
+     if ($result) {
+          if ($result->num_rows > 0) {
+              echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'>";
+              echo "<tr><th>ID</th><th>Name</th><th>Alias</th><th>Species</th>";
+             if (isset($_SESSION['user_id'])) {
+                  echo "<th>Delete</th>";
+              }
+              echo "</tr>";
+              while ($row = $result->fetch_assoc()) {
+                  echo "<tr>";
+                 echo "<td>" . htmlspecialchars($row['Supervillain_ID']) . "</td>";
+                  echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
+                  echo "<td>" . htmlspecialchars($row['Alias']) . "</td>";
+                  echo "<td>" . htmlspecialchars($row['Species']) . "</td>";
+                  if (isset($_SESSION['user_id'])) {
+                      echo "<td><a href='delete_villain.php?id=" . $row['Supervillain_ID'] . "' onclick='return confirm(\"Are you sure you want to delete th    is record?\");'>Delete</a></td>";
+                  }
+                  echo "</tr>";
+              }
+              echo "</table>";
+          } else {
+              echo "No results found.";
+          }
+      } else {
+          echo "Error executing query: " . $connection->error;
+      }
+      ?>
 
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit();
-}
-
-$sql = "SELECT * FROM Supervillains";
-$result = $connection->query($sql);
-
-if ($result) {
-    if ($result->num_rows > 0) {
-        echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'>";
-         echo "<tr><th>ID</th><th>Name</th><th>Alias</th><th>Species</th><th>Delete</th></tr>";
-
-
-while ($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($row['Supervillain_ID']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['Alias']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['Species']) . "</td>";
-    echo "<td><a href='delete_villain.php?id=" . $row['Supervillain_ID'] . "' onclick='return confirm(\"Are you sure you want to delete this record?\");'>Delete</a></td>";
-    echo "</tr>";
-}
-echo "</table>";
-
-        echo "</form>";
-    } else {
-        echo "No results found.";
-    }
-} else {
-    echo "Error executing query: " . $connection->error;
-}
-?>
 
 <h3>Renzo and Emma's tier list of best Marvel villains</h3>
 <p><strong>Renzo</strong></p>

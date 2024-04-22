@@ -1,10 +1,10 @@
 <?php
 session_start();
-include "credentials.php";  
+require 'credentials.php';
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login.php');
-    exit();
+    exit;
 }
 
 $connection = mysqli_connect($servername, $username, $password, $db_name);
@@ -14,41 +14,22 @@ if (!$connection) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $table = mysqli_real_escape_string($connection, $_POST['table']);
-    $fields = $_POST['fields'];  
+    $id = $_POST['id'];
+    $value = mysqli_real_escape_string($connection, $_POST['value']);
 
-    $id = isset($_POST['id']) ? intval($_POST['id']) : null;
-    $placeholders = [];
-    $values = [];
-
-    foreach ($fields as $field => $value) {
-        $placeholders[] = "$field = ?";
-        $values[] = $value;
-    }
-
-    if ($id) {
-        
-        $query = "UPDATE `$table` SET " . implode(', ', $placeholders) . " WHERE id = ?";
-        $values[] = $id;  
-    } else {
-       
-        $columns = array_keys($fields);
-        $placeholders = array_fill(0, count($columns), '?');
-        $query = "INSERT INTO `$table` (" . implode(', ', $columns) . ") VALUES (" . implode(', ', $placeholders) . ")";
-    }
-
+    $query = "UPDATE `$table` SET column_name = ? WHERE id = ?";
     $stmt = $connection->prepare($query);
-    $stmt->bind_param(str_repeat("s", count($values)), ...$values);
-    $stmt->execute();
-
-    if ($stmt->affected_rows > 0) {
-        echo $id ? "Record updated successfully." : "Record added successfully.";
+    if ($stmt) {
+        $stmt->bind_param('si', $value, $id);
+        if (!$stmt->execute()) {
+            echo "Error updating record: " . $stmt->error;
+        } else {
+            echo "Record updated successfully";
+        }
+        $stmt->close();
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Prepare failed: " . $connection->error;
     }
-
-    $stmt->close();
-    $connection->close();
-    header('Location: ' . $_SERVER['HTTP_REFERER']);  
-    exit();
 }
 ?>
+

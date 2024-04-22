@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'superheroes':
             echo "Name: <input type='text' name='Name'><br>";
             echo "Alias: <input type='text' name='Alias'><br>";
-            echo "Origin: <input type='text' name='Place_of_origin'><br>";
-            echo "Main Villain: <input type='text' name='Main_villain'><br>";
+            echo "Origin: <input type='text' name='Origin'><br>";
+            echo "Main Villain: <input type='text' name='Main_Villain'><br>";
             echo "Powers: <input type='text' name='Powers'><br>";
-            echo "First Appearance Date: <input type='date' name='First_appearance_date'><br>";
-            echo "First Appearance Comic: <input type='text' name='First_appearance_comic'><br>";
+            echo "First Appearance Date: <input type='date' name='First_Appearance_Date'><br>";
+            echo "First Appearance Comic: <input type='text' name='First_Appearance_Comic'><br>";
             break;
         case 'villains':
             echo "Name: <input type='text' name='name'><br>";
