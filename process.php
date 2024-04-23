@@ -1,46 +1,49 @@
 <?php
 include 'credentials.php';
+echo "<pre>POST Data:";
+print_r($_POST);
+echo "</pre>";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $table = $_POST['table'];
+    $action = $_POST['action'];
 
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "<form action='process.php' method='post'>";
+    echo "<input type='hidden' name='table' value='$table'>";
+    echo "<input type='hidden' name='action' value='$action'>";
 
-$table = $_POST['table'] ?? null;
-$action = $_POST['action'] ?? null;
-
-if ($table === 'superheroes') {
-    if ($action === 'insert') {
-        $stmt = $pdo->prepare("INSERT INTO Superheroes (Name, Alias, Origin, Main_Villain, Powers, First_Appearance_Date, First_Appearance_Comic) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$_POST['Name'], $_POST['Alias'], $_POST['Origin'], $_POST['Main_Villain'], $_POST['Powers'], $_POST['First_Appearance_Date'], $_POST['First_Appearance_Comic']]);
-    } elseif ($action === 'edit') {
-        $stmt = $pdo->prepare("UPDATE Superheroes SET Name=?, Alias=?, Origin=?, Main_Villain=?, Powers=?, First_Appearance_Date=?, First_Appearance_Comic=? WHERE ID=?");
-        $stmt->execute([$_POST['Name'], $_POST['Alias'], $_POST['Origin'], $_POST['Main_Villain'], $_POST['Powers'], $_POST['First_Appearance_Date'], $_POST['First_Appearance_Comic'], $_POST['ID']]);
+    switch ($table) {
+        case 'superheroes':
+            echo "Name: <input type='text' name='Name'><br>";
+            echo "Alias: <input type='text' name='Alias'><br>";
+            echo "Origin: <input type='text' name='Origin'><br>";
+            echo "Main Villain: <input type='text' name='Main_Villain'><br>";
+            echo "Powers: <input type='text' name='Powers'><br>";
+            echo "First Appearance Date: <input type='date' name='First_Appearance_Date'><br>";
+            echo "First Appearance Comic: <input type='text' name='First_Appearance_Comic'><br>";
+            break;
+        case 'villains':
+            echo "Name: <input type='text' name='Name'><br>";
+            echo "Alias: <input type='text' name='Alias'><br>";
+            echo "Species: <input type='text' name='Species'><br>";
+            break;
+        case 'movies':
+            echo "Title: <input type='text' name='Ritle'><br>";
+            echo "Release Date: <input type='date' name='Released_date'><br>";
+            echo "Duration (in minutes): <input type='number' name='Duration'><br>";
+            echo "Box Office Revenue: <input type='text' name='Box_office'><br>";
+            echo "Director: <input type='text' name='Director'><br>";
+            break;
+        case 'tv_shows':
+            echo "Title: <input type='text' name='Title'><br>";
+            echo "Release Date: <input type='date' name='Release_date'><br>";
+            echo "Seasons: <input type='number' name='Seasons'><br>";
+            echo "Episodes: <input type='number' name='Episodes'><br>";
+            echo "Main Character: <input type='text' name='Main_character'><br>";
+            echo "Creator: <input type='text' name='Creator'><br>";
+            echo "Comic based? (Y/N): <input type='text' name=Comic_based'><br>";
+            break;
     }
-    header("Location: superheroes.php");
-    exit();
+    echo "<input type='submit' value='Submit'>";
 }
-
-if ($table === 'movies') {
-    if ($action === 'insert') {
-        $stmt = $pdo->prepare("INSERT INTO Movies (Title, Released_date, Duration_minutes, Box_office, Director) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$_POST['Title'], $_POST['Released_date'], $_POST['Duration_minutes'], $_POST['Box_office'], $_POST['Director']]);
-    } elseif ($action === 'edit') {
-        $stmt = $pdo->prepare("UPDATE Movies SET Title=?, Released_date=?, Duration_minutes=?, Box_office=?, Director=? WHERE Movie_ID=?");
-        $stmt->execute([$_POST['Title'], $_POST['Released_date'], $_POST['Duration_minutes'], $_POST['Box_office'], $_POST['Director'], $_POST['ID']]);
-    }
-    header("Location: movies.php");
-    exit();
-}
-
- if ($table === 'tv') {
-      if ($action === 'insert') {
-          $stmt = $pdo->prepare("INSERT INTO TV_Shows (Title, Released_date, Seasons, Episodes, Main_character, Creator, Comic_based) VALUES (?, ?, ?, ?, ?, ?, ?)");
-          $stmt->execute([$_POST['Title'], $_POST['Released_date'], $_POST['Seasons'], $_POST['Episodes'], $_POST['Main_character'],  $_POST['Creator'],  $_POST['Comic_based']]);
-      } elseif ($action === 'edit') {
-          $stmt = $pdo->prepare("UPDATE TV_Shows SET Title=?, Released_date=?, Seasons=?, Episodes=?, Main_character=?, Creator=?, Comic_based=? WHERE TV_Show_ID=?");
-          $stmt->execute([$_POST['Title'], $_POST['Released_date'], $_POST['Seasons'], $_POST['Episodes'], $_POST['Main_character'],  $_POST['Creator'],      $_POST['Comic_based'], $_POST['TV_Show_ID']]);
-      header("Location: tv.php");
-      exit();
-}
-}
-
 ?>
 

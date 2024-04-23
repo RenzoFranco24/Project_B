@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<input type='hidden' name='table' value='$table'>";
     echo "<input type='hidden' name='action' value='$action'>";
 
-    if ($table === 'superheroes') {
+    if ($table == 'superheroes') {
         if ($action == 'edit') {
             echo "ID to edit: <input type='number' name='ID' required><br>";
       }
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "First Appearance Comic: <input type='text' name='First_Appearance_Comic'><br>";
     }
 
-    if ($table === 'movies') {
+    if ($table == 'movies') {
         if ($action == 'edit') {
             echo "ID to edit: <input type='number' name='Movie_ID' required><br>";
         }
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               echo "Box office: <input type='text' name='Box_office'><br>";
               echo "Director: <input type='text' name='Director'><br>";
          }
-    if ($table === 'tv') {
+    if ($table == 'tv') {
         if ($action == 'edit') {
             echo "ID to edit: <input type='number' name='TV_Show_ID' required><br>";
         }
@@ -47,4 +47,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "</form>";
 }
 ?>
+
 
