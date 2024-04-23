@@ -16,6 +16,8 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
     <h1>Welcome to the information section on Marvel superheroes!</h1>
     <p>This page is all about the big superheroes from Marvel - including from the movies, TV shows, and comics!</p>
     <p>Here are some stats about various Marvel superheroes!</p>
+    <br></br>
+    <p>Note: please make sure to login if you want to delete, insert, or edit anything from the table!</p>
     <?php
     include "credentials.php";
     $connection = mysqli_connect($servername, $username, $password, $db_name);
@@ -26,7 +28,6 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
 
     $sql = "SELECT * FROM Superheroes";
     $result = $connection->query($sql);
-
     if ($result) {
         if ($result->num_rows > 0) {
             echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'>";
@@ -58,7 +59,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
         echo "Error executing query: " . $connection->error;
     }
     ?>
-    <h3>Renzo and Emma's tier list of best Marvel superheroes! (although you know this already)</h3>
+    <h3>Renzo and Emma's tier list of the best Marvel superheroes! (although you know this already)</h3>
     <p><strong>Renzo</strong></p>
 <ol>
     <li>Iron Man</li>
@@ -82,7 +83,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
     <img class="superhero_eachPic" src="https://www.denofgeek.com/wp-content/uploads/2021/01/webstory-captain-america-cover03.jpg" height="300px">
 </div>
     <?php
-    echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
+        echo "<p style='color: white;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
     ?>
 </body>
 </html>

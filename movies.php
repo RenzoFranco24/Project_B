@@ -22,6 +22,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
     <h1>
         Welcome to the information section on Marvel movies!
     </h1>
+ <p>Note: please make sure to login if you want to delete, insert, or edit anything from the table!</p>
 <?php
 include "credentials.php";
 $connection = mysqli_connect($servername, $username, $password, $db_name);
@@ -31,7 +32,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT *  FROM Movies";
+$sql = "SELECT * FROM Movies";
 $result = $connection->query($sql);
 
 
@@ -44,7 +45,10 @@ if ($result) {
         echo "<th>Duration (in minutes)</th>";
         echo "<th>Box Office Revenue</th>";
         echo "<th>Director</th>";
-        echo "<th>Delete</th>";
+        if (isset($_SESSION['user_id'])) {
+                  echo "<th>Delete</th>";
+              }
+
         echo "</tr>";
 
         while ($row = $result->fetch_assoc()) {
@@ -55,20 +59,50 @@ if ($result) {
             echo "<td>" . htmlspecialchars($row['Duration_minutes']) . "</td>";
             echo "<td>" . htmlspecialchars($row['Box_office']) . "</td>";
             echo "<td>" . htmlspecialchars($row['Director']) . "</td>";
-            echo "<td><a href='delete_movies.php?id=" . $row['Movie_ID'] . "' onclick='return confirm(\"Are you sure you want to delete this record?\");'>    Delete</a></td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "No results found.";
-    }
-} else {
-    echo "Error executing query: " . $connection->error;
-}
+            if (isset($_SESSION['user_id'])) {
+                      echo "<td><a href='delete_movie.php?id=" . $row['Movie_ID'] . "' onclick='return confirm(\"Are you sure you want to delete this record?    \");'>Delete</a></td>";
+                  }
+                  echo "</tr>";
+              }
+              echo "</table>";
+          } else {
+              echo "No results found.";
+          }
+      } else {
+          echo "Error executing query: " . $connection->error;
+      }
+   
 ?>
- <?php
-     echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
+
+<h3>Renzo and Emma's tier list of the best Marvel movies - but more variety this time!</h3>
+  <p><strong>Renzo</strong></p>
+  <ol>
+      <li>Iron Man</li>
+      <li>Thor: Ragnarok</li>
+      <li>Avengers: Infinity War</li>
+  </ol>
+ 
+  <p><strong>Emma</strong></p>
+  <ol>
+      <li>Guardians of the Galaxy Vol 3</li>
+      <li>Black Panther</li>
+      <li>Captain America: The Winter Soldier</li>
+  </ol>
+ 
+  <div class="movie_pic">
+      <img class="movie_eachPic" src="https://i.ebayimg.com/images/g/upMAAOSw4vJaoM-F/s-l1600.jpg" height="300px">
+      <img class="movie_eachPic" src="https://m.media-amazon.com/images/I/A1HBBNzBdxL.jpg" height=    "300px">
+      <img class="movie_eachPic" src="https://i.ebayimg.com/images/g/VpQAAOSwHvpa7zbY/s-l1600.jpg" height="300px">
+      <img class="movie_eachPic" src="https://image.tmdb.org/t/p/original/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg" height="300px">
+      <img class="movie_eachPic" src="https://i.ebayimg.com/images/g/svIAAOSwr~hfSyhB/s-l1600.jpg" height="300px">
+      <img class="movie_eachPic" src="https://m.media-amazon.com/images/I/818xQZGm-JL.jpg" height="300px">
+  </div>
+ 
+ 
+   <?php
+    echo "<p style='color: white;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
   ?>
+
 
 </iframe>
 </body>

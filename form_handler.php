@@ -9,8 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<input type='hidden' name='table' value='$table'>";
     echo "<input type='hidden' name='action' value='$action'>";
 
-    switch ($table) {
-        case 'superheroes':
+    if ($table === 'superheroes') {
+        if ($action == 'edit') {
+            echo "ID to edit: <input type='number' name='ID' required><br>";
+      }
             echo "Name: <input type='text' name='Name'><br>";
             echo "Alias: <input type='text' name='Alias'><br>";
             echo "Origin: <input type='text' name='Origin'><br>";
@@ -18,30 +20,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Powers: <input type='text' name='Powers'><br>";
             echo "First Appearance Date: <input type='date' name='First_Appearance_Date'><br>";
             echo "First Appearance Comic: <input type='text' name='First_Appearance_Comic'><br>";
-            break;
-        case 'villains':
-            echo "Name: <input type='text' name='name'><br>";
-            echo "Alias: <input type='text' name='alias'><br>";
-            echo "Species: <input type='text' name='species'><br>";
-            break;
-        case 'movies':
-            echo "Title: <input type='text' name='title'><br>";
-            echo "Release Date: <input type='date' name='release_date'><br>";
-            echo "Duration (in minutes): <input type='number' name='duration'><br>";
-            echo "Box Office Revenue: <input type='text' name='box_office'><br>";
-            echo "Director: <input type='text' name='director'><br>";
-            break;
-        case 'tv_shows':
-            echo "Title: <input type='text' name='title'><br>";
-            echo "Release Date: <input type='date' name='release_date'><br>";
-            echo "Seasons: <input type='number' name='seasons'><br>";
-            echo "Episodes: <input type='number' name='episodes'><br>";
-            echo "Main Character: <input type='text' name='main_character'><br>";
-            echo "Creator: <input type='text' name='creator'><br>";
-            echo "Comic based? (Y/N): <input type='text' name='comic_based'><br>";
-            break;
     }
 
+    if ($table === 'movies') {
+        if ($action == 'edit') {
+            echo "ID to edit: <input type='number' name='Movie_ID' required><br>";
+        }
+              echo "Title: <input type='text' name='Title'><br>";
+              echo "Release date: <input type='date' name='Released_date'><br>";
+              echo "Duration (in mins): <input type='integer' name='Duration_minutes'><br>";
+              echo "Box office: <input type='text' name='Box_office'><br>";
+              echo "Director: <input type='text' name='Director'><br>";
+         }
+    if ($table === 'tv') {
+        if ($action == 'edit') {
+            echo "ID to edit: <input type='number' name='TV_Show_ID' required><br>";
+        }
+                echo "Title: <input type='text' name='Title'><br>";
+                echo "Release date: <input type='date' name='Released_date'><br>";
+                echo "Seasons: <input type='integer' name='Seasons'><br>";
+                echo "Episodes: <input type='integer' name='Episodes'><br>";
+                echo "Main_character: <input type='text' name='Main_character'><br>";
+                echo "Based on a comic? [Y/N]: <input type='chr' name='Comic_based'><br>";
+           }
     echo "<input type='submit' value='Submit'>";
     echo "</form>";
 }

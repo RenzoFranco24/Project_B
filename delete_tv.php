@@ -14,7 +14,7 @@ if (!$connection) {
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    $query = "DELETE FROM Superheroes WHERE ID = ?";
+    $query = "DELETE FROM TV_Shows WHERE TV_Show_ID = ?";
     $stmt = $connection->prepare($query);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
     } else {
         echo "Error deleting record.";
     }
-    header('Location: superheroes.php'); 
+    header('Location: movies.php'); 
     exit();
 }
 

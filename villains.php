@@ -27,6 +27,7 @@ This page is all about the big bads from Marvel - including from the movies, TV 
 PSA: Marvel needs to stop killing off their villains - let them live for longer than a movie or two!
 </p>
 <p>Here are some stats about various Marvel villains!</p>
+ <p>Note: please make sure to login if you want to delete, insert, or edit anything from the table!</p>
 <?php
 include "credentials.php";
 $connection = mysqli_connect($servername, $username, $password, $db_name);
@@ -68,7 +69,7 @@ $connection = mysqli_connect($servername, $username, $password, $db_name);
       ?>
 
 
-<h3>Renzo and Emma's tier list of best Marvel villains</h3>
+<h3>Renzo and Emma's tier list of the best Marvel villains</h3>
 <p><strong>Renzo</strong></p>
 <ol>
     <li>Ultron</li>
@@ -94,7 +95,7 @@ $connection = mysqli_connect($servername, $username, $password, $db_name);
 
 
  <?php
-  echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
+  echo "<p style='color: white;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
 
 

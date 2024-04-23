@@ -20,46 +20,9 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
    </head>
    <body>
     <h1>
-        Welcome to the information section on Marvel superheroes!
+        Welcome to the information section on Marvel tv shows!
     </h1>
-<?php
-echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
-?>
-
-<p>
-Great, you scrolled down! You must (somewhat) care about my opinion! <br></br>
-This is my tier list of Daredevil characters... might be a hot take. </p>
-<?php
-$items = ["Matt Murdock", "Frank Castle", "Benjamin Poindexter", "Foggy Nelson", "Ray Nadeem", "Karen Page"];
-
-echo '<ol style="color: white;">';
-foreach ($items as $item) {
-    echo "<li>" . $item . "</li>"; 
-}
-echo "</ol>";
-?>
-
-<p> Here are my expectations... (and/or wants) </p>
-
-<?php
-
-function printList($items) {
-    echo '<ul style="color: white; list-style-type: square;">';
-    foreach ($items as $item) {
-        echo "<li>" . $item . "</li>";
-    }
-echo "</ul>";
-}
-$plotPoints = [
-    "Kingpin becomes the mayor - see what happens and how that impacts Karen, Foggy, and Matt.",
-    "Matt Dripdock (iykyk).",
-    "Have it tie into Spider-Man, since Kingpin is a villain of his.",
-    "Have White Tiger in it as Daredevil's new foe.",
-    "Have it be up to 13 episodes rather than the 18 they were planning for."
-];
-printList($plotPoints);
-?>
-<p>Here are some stats about various Marvel characters!</p>
+ <p>Note: please make sure to login if you want to delete, insert, or edit anything from the table!</p>
 <?php
 include "credentials.php";
 $connection = mysqli_connect($servername, $username, $password, $db_name);
@@ -69,25 +32,29 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$sql = "SELECT *  FROM TV_Shows";
+$sql = "SELECT * FROM TV_Shows";
 $result = $connection->query($sql);
 
 
 if ($result) {
     if ($result->num_rows > 0) {
         echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
-        echo "<th>TV_Show_ID</th>";
+        echo "<th>TV Show ID</th>";
         echo "<th>Title</th>";
         echo "<th>Release Date</th>";
         echo "<th>Seasons</th>";
         echo "<th>Episodes</th>";
-        echo "<th>Main Character</th>";
+        echo "<th>Main Character(s)</th>";
         echo "<th>Creator</th>";
         echo "<th>Comic based?</th>";
+        if (isset($_SESSION['user_id'])) {
+                  echo "<th>Delete</th>";
+              }
+
         echo "</tr>";
 
         while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
+            echo "<tr   >";
             echo "<td>" . htmlspecialchars($row['TV_Show_ID']) . "</td>";
             echo "<td>" . htmlspecialchars($row['Title']) . "</td>";
             echo "<td>" . htmlspecialchars($row['Released_date']) . "</td>";
@@ -96,16 +63,59 @@ if ($result) {
             echo "<td>" . htmlspecialchars($row['Main_character']) . "</td>";
             echo "<td>" . htmlspecialchars($row['Creator']) . "</td>";
             echo "<td>" . htmlspecialchars($row['Comic_based']) . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "No results found.";
-    }
-} else {
-    echo "Error executing query: " . $connection->error;
-}
+            if (isset($_SESSION['user_id'])) {
+                      echo "<td><a href='delete_tv.php?id=" . $row['TV_Show_ID'] . "' onclick='return confirm(\"Are you sure you want to delete this record?    \");'>Delete</a></td>";
+                  }
+                  echo "</tr>";
+              }
+              echo "</table>";
+          } else {
+              echo "No results found.";
+          }
+      } else {
+          echo "Error executing query: " . $connection->error;
+      }
+   
 ?>
+
+<p>Renzo and Emma's tier list of best Marvel tv shows and us copying each other (womp womp)!</p>
+  <img src="https://media.tenor.com/_etLMOP-kFYAAAAj/blue-emoji.gif">
+    <p>My reaction to Renzo copying me (Emma)</p>
+<h3>Part 2</h3>
+<img src="https://media1.tenor.com/m/ufKzD-y73e8AAAAC/emoji-shocked-face.gif" width="300" height="200">
+<h3>Renzo and Emma's tier list of best Marvel tv shows!</h3>
+  <p><strong>Renzo</strong></p>
+  <ol>
+      <li>Moon Knight</li>
+      <li>What If...?</li>
+      <li>Daredevil</li>
+  </ol>
+ 
+  <p><strong>Emma</strong></p>
+  <ol>
+      <li>Daredevil</li>
+      <li>The Punisher</li>
+      <li>Moon Knight</li>
+  </ol>
+ 
+  <div class="tv_pic">
+      <img class="tv_eachPic" src="https://m.media-amazon.com/images/I/81JAUSV7cZL.jpg" height="300px">
+      <img class="tv_eachPic" src="https://m.media-amazon.com/images/I/81TR9+czWiS.jpg" height=    "300px">
+      <img class="tv_eachPic" src="https://cdn.marvel.com/content/1x/daredevil_s3_vertical-main_rgb.jpg" height="300px">
+      <img class="tv_eachPic" src="https://i.ebayimg.com/images/g/PkMAAOSwiV9jR6qL/s-l1600.jpg" height="300px">
+      <img class="tv_eachPic" src="https://i.ebayimg.com/images/g/Y3cAAOSwWtFcTPMT/s-l1600.jpg" height="300px">
+      <img class="tv_eachPic" src="https://m.media-amazon.com/images/I/91rNwL7hyeL.jpg" height="300px">
+  </div>
+
+<h3>Marvel tv has some banger intros: </h3>
+<p>Exhibit A: The Daredevil intro: </p>
+ <audio controls>
+   <source src="https://www.televisiontunes.com/uploads/audio/Daredevil%20-%202015.mp3" type="audio/mp3">
+  Your browser does not support the audio element. 
+</audio>
+   <?php
+    echo "<p style='color: white;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
+  ?>
 
 </iframe>
 </body>
