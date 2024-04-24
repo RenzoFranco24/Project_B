@@ -33,7 +33,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
         <li>Major: Computer Science</li>
         <li>Fav Marvel Character: Daredevil</li>
         <li>Fav Marvel Movie: Captain America: The Winter Soldier</li>
-        <li>Fav Marvel TV Show: The Falcon and the Winter Soldier and Daredevil</li>
+        <li>Fav Marvel TV Show: The Punisher and Daredevil</li>
     </ul>
     <p><strong>Renzo</strong></p>
     <ul>

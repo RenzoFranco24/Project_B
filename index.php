@@ -11,7 +11,7 @@
             <option value="superheroes">Superheroes</option>
             <option value="villains">Villains</option>
             <option value="movies">Movies</option>
-            <option value="tv_shows">TV Shows</option>
+            <option value="tv">TV Shows</option>
         </select>
         <select name="action">
             <option value="insert">Insert</option>

@@ -4,6 +4,10 @@ session_start();
 echo '<nav>';
 echo '<ul>';
 
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    echo '<li>Welcome, ' . $_SESSION['username'] . '</li>';
+}
+
 echo '<li><a href="Marvel_Pookies.php">Home</a></li>';
 echo '<li><a href="superheroes.php">Superheroes</a></li>';
 echo '<li><a href="villains.php">Villains</a></li>';

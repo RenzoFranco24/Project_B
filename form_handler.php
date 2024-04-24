@@ -1,5 +1,8 @@
 <?php
 include 'credentials.php';
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $table = $_POST['table'];
@@ -40,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "Release date: <input type='date' name='Released_date'><br>";
                 echo "Seasons: <input type='integer' name='Seasons'><br>";
                 echo "Episodes: <input type='integer' name='Episodes'><br>";
-                echo "Main_character: <input type='text' name='Main_character'><br>";
+                echo "Main Character(s): <input type='text' name='Main_character'><br>";
+                echo "Creator: <input type='text' name='Creator'><br>";
                 echo "Based on a comic? [Y/N]: <input type='chr' name='Comic_based'><br>";
            }
     echo "<input type='submit' value='Submit'>";

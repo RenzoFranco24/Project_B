@@ -6,17 +6,12 @@ body, h1, h2, h3, p, ul {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-image: url("https://s7.ezgif.com/tmp/ezgif-7-c681087070.jpg");
+    background-image: url("background.jpg");
     padding: 20px;
     color: #FFFF;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
-    text-shadow:
-    1px 1px 0 #000,
-    -1.5px 1.5px 0 #000,
-    -1.5px -1.5px 0 #000,
-    1px -1px 0 #000;
 }
 
 h1 {
@@ -82,8 +77,10 @@ button.delete:hover {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-size: cover;
-    background-repeat: repeat; 
+    background-attachment: fixed;
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
+    background-position: center; 
     align-items: center;
 }
 

@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="login_body">
 <div class="login_box">
     <h2>Login</h2>
-    <p>Please enter your username and password</p>
+    <p style="color: black;">Please enter your username and password</p>
     <form class="login_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <input type="text" name="username" placeholder="Username">
         <br>
