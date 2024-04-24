@@ -6,7 +6,7 @@ body, h1, h2, h3, p, ul {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-image: url("background.jpg");
+     background-image: url("https://static.vecteezy.com/system/resources/previews/002/625/099/non_2x/dark-red-modern-blurred-background-abstract-illustration-with-gradient-blur-design-design-for-landing-pages-vector.jpg");
     padding: 20px;
     color: #FFFF;
     background-size: cover;
@@ -78,7 +78,6 @@ button.delete:hover {
     display: flex;
     justify-content: center;
     background-attachment: fixed;
-    /*background-size: cover;*/
     background-repeat: no-repeat;
     background-position: center; 
     align-items: center;

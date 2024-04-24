@@ -22,11 +22,8 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
     <h1>
         Welcome to Renzo and Emma's Marvel Information Blog!
     </h1>
-<h2>
-    We have plenty of information for anything Marvel!!!
-</h2>
     <h2>Website Information</h2>
-    <p>Here you will find a lot of information about Marvel!!</p>
+    <p>Here you will find a lot of information about Marvel (we are both marvel stans :P)!!</p>
     <h3>Creators of this website</h3>
     <p><strong>Emma</strong></p>
     <ul>
@@ -50,7 +47,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
     <img class="fav_characters" src="https://static.tvtropes.org/pmwiki/pub/images/1c7e3abf13f0f384430cd427b837e558.jpg" height="300px">
 
 <?php
-echo "<p style='color: black;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
+echo "<p style='color: white;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";
 ?>
 
 

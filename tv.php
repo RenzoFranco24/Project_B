@@ -78,12 +78,12 @@ if ($result) {
    
 ?>
 
-<p>Renzo and Emma's tier list of best Marvel tv shows and us copying each other (womp womp)!</p>
+<p>Renzo and Emma's tier list of the  best Marvel tv shows and us copying each other (womp womp)!</p>
   <img src="https://media.tenor.com/_etLMOP-kFYAAAAj/blue-emoji.gif">
     <p>My reaction to Renzo copying me (Emma)</p>
 <h3>Part 2</h3>
 <img src="https://media1.tenor.com/m/ufKzD-y73e8AAAAC/emoji-shocked-face.gif" width="300" height="200">
-<h3>Renzo and Emma's tier list of best Marvel tv shows!</h3>
+<h3>Renzo and Emma's tier list of the best Marvel tv shows!</h3>
   <p><strong>Renzo</strong></p>
   <ol>
       <li>Moon Knight</li>
@@ -98,13 +98,13 @@ if ($result) {
       <li>Moon Knight</li>
   </ol>
  
-  <div class="tv_pic">
-      <img class="tv_eachPic" src="https://m.media-amazon.com/images/I/81JAUSV7cZL.jpg" height="300px">
-      <img class="tv_eachPic" src="https://m.media-amazon.com/images/I/81TR9+czWiS.jpg" height=    "300px">
-      <img class="tv_eachPic" src="https://cdn.marvel.com/content/1x/daredevil_s3_vertical-main_rgb.jpg" height="300px">
-      <img class="tv_eachPic" src="https://i.ebayimg.com/images/g/PkMAAOSwiV9jR6qL/s-l1600.jpg" height="300px">
-      <img class="tv_eachPic" src="https://i.ebayimg.com/images/g/Y3cAAOSwWtFcTPMT/s-l1600.jpg" height="300px">
-      <img class="tv_eachPic" src="https://m.media-amazon.com/images/I/91rNwL7hyeL.jpg" height="300px">
+  <div class="villain_pic">
+      <img class="villain_eachPic" src="https://m.media-amazon.com/images/I/81JAUSV7cZL.jpg" height="300px">
+      <img class="villain_eachPic" src="https://m.media-amazon.com/images/I/81TR9+czWiS.jpg" height=    "300px">
+      <img class="villain_eachPic" src="https://cdn.marvel.com/content/1x/daredevil_s3_vertical-main_rgb.jpg" height="300px">
+      <img class="villain_eachPic" src="https://i.ebayimg.com/images/g/PkMAAOSwiV9jR6qL/s-l1600.jpg" height="300px">
+      <img class="villain_eachPic" src="https://i.ebayimg.com/images/g/Y3cAAOSwWtFcTPMT/s-l1600.jpg" height="300px">
+      <img class="villain_eachPic" src="https://m.media-amazon.com/images/I/91rNwL7hyeL.jpg" height="300px">
   </div>
 
 <h3>Marvel tv has some banger intros: </h3>

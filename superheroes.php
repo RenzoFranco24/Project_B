@@ -74,13 +74,13 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
     <li>Captain America (Steve Rogers)</li>
 </ol>
 
-<div class="superhero_pic">
-    <img class="superhero_eachPic" src="https://static.wikia.nocookie.net/marvelcinematicuniverse/images/3/35/IronMan-EndgameProfile.jpg" height="300px">
-    <img class="superhero_eachPic" src="https://wallpapers.com/images/hd/tobey-maguire-in-ripped-spider-man-suit-rmygo40cg51mli8m.jpg" height="300px">
-    <img class="superhero_eachPic" src="https://static.wikia.nocookie.net/disney/images/1/11/Deadpool_-_Profile.jpg" height="300px">
-    <img class="superhero_eachPic" src="https://static.wikia.nocookie.net/marveldatabase/images/a/aa/Daredevil_Vol_6_21_Textless.jpg" height="300px">
-    <img class="superhero_eachPic" src="https://i.pinimg.com/736x/89/3a/c1/893ac1b31a89071e67cd29d552581e72.jpg" height="300px">
-    <img class="superhero_eachPic" src="https://www.denofgeek.com/wp-content/uploads/2021/01/webstory-captain-america-cover03.jpg" height="300px">
+<div class="villain_pic">
+    <img class="villain_eachPic" src="https://static.wikia.nocookie.net/marvelcinematicuniverse/images/3/35/IronMan-EndgameProfile.jpg" height="300px">
+    <img class="villain_eachPic" src="https://wallpapers.com/images/hd/tobey-maguire-in-ripped-spider-man-suit-rmygo40cg51mli8m.jpg" height="300px">
+    <img class="villain_eachPic" src="https://static.wikia.nocookie.net/disney/images/1/11/Deadpool_-_Profile.jpg" height="300px">
+    <img class="villain_eachPic" src="https://static.wikia.nocookie.net/marveldatabase/images/a/aa/Daredevil_Vol_6_21_Textless.jpg" height="300px">
+    <img class="villain_eachPic" src="https://i.pinimg.com/736x/89/3a/c1/893ac1b31a89071e67cd29d552581e72.jpg" height="300px">
+    <img class="villain_eachPic" src="https://www.denofgeek.com/wp-content/uploads/2021/01/webstory-captain-america-cover03.jpg" height="300px">
 </div>
     <?php
         echo "<p style='color: white;'>Today is: " . date('m-d-Y') . ". The time is: " . date('h:i') . ".</p>";

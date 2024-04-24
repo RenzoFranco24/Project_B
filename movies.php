@@ -89,13 +89,13 @@ if ($result) {
       <li>Captain America: The Winter Soldier</li>
   </ol>
  
-  <div class="movie_pic">
-      <img class="movie_eachPic" src="https://i.ebayimg.com/images/g/upMAAOSw4vJaoM-F/s-l1600.jpg" height="300px">
-      <img class="movie_eachPic" src="https://m.media-amazon.com/images/I/A1HBBNzBdxL.jpg" height=    "300px">
-      <img class="movie_eachPic" src="https://i.ebayimg.com/images/g/VpQAAOSwHvpa7zbY/s-l1600.jpg" height="300px">
-      <img class="movie_eachPic" src="https://image.tmdb.org/t/p/original/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg" height="300px">
-      <img class="movie_eachPic" src="https://i.ebayimg.com/images/g/svIAAOSwr~hfSyhB/s-l1600.jpg" height="300px">
-      <img class="movie_eachPic" src="https://m.media-amazon.com/images/I/818xQZGm-JL.jpg" height="300px">
+  <div class="villain_pic">
+      <img class="villain_eachPic" src="https://i.ebayimg.com/images/g/upMAAOSw4vJaoM-F/s-l1600.jpg" height="300px">
+      <img class="villain_eachPic" src="https://m.media-amazon.com/images/I/A1HBBNzBdxL.jpg" height=    "300px">
+      <img class="villain_eachPic" src="https://i.ebayimg.com/images/g/VpQAAOSwHvpa7zbY/s-l1600.jpg" height="300px">
+      <img class="villain_eachPic" src="https://image.tmdb.org/t/p/original/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg" height="300px">
+      <img class="villain_eachPic" src="https://i.ebayimg.com/images/g/svIAAOSwr~hfSyhB/s-l1600.jpg" height="300px">
+      <img class="villain_eachPic" src="https://m.media-amazon.com/images/I/818xQZGm-JL.jpg" height="300px">
   </div>
  
  

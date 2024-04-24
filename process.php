@@ -72,7 +72,52 @@ if ($table == 'movies' && $action == 'insert') {
     exit();
 }
 
+if ($table == 'villains' && $action == 'insert') {
+      $stmt = $pdo->prepare("INSERT INTO Supervillains (Name, Alias, Species) VALUES (?, ?, ?)");
+      $stmt->execute([
+          $_POST['Name'] ?? '',
+          $_POST['Alias'] ?? '',
+          $_POST['Species'] ?? ''
+      ]);
+      header("Location: villains.php");
+      exit();
+  } elseif ($table == 'villains' && $action == 'edit') {
+      $stmt = $pdo->prepare("UPDATE Supervillains SET Name=?, Alias=?, Species=? WHERE Supervillain_ID=?");
+      $stmt->execute([
+          $_POST['Name'] ?? '',
+          $_POST['Alias'] ?? '',
+          $_POST['Species'] ?? '',
+          $_POST['Supervillain_ID'] ?? ''
+      ]);
+      header("Location: villains.php");
+      exit();
+}
+if ($table == 'tv_character') {
+    if ($action == 'insert') {
+        
+        $stmt = $pdo->prepare("INSERT INTO TV_Shows_Superheroes (TV_Show_ID, ID) VALUES (?, ?)");
+        $stmt->execute([
+            $_POST['TV_Show_ID'],
+            $_POST['ID']
+        ]);
+        header("Location: tv_character.php"); 
+        exit();
+    }
+}
 
+
+if ($table == 'tv_movie') {
+      if ($action == 'insert') {
+
+         $stmt = $pdo->prepare("INSERT INTO Movie_Superheroes (Movie_ID, ID) VALUES (?, ?)");
+         $stmt->execute([
+             $_POST['Movie_ID'],
+             $_POST['ID']
+         ]);
+         header("Location: tv_movie.php");
+         exit();
+     }
+}
 
 ?>
 

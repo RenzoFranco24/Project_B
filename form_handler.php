@@ -1,9 +1,5 @@
 <?php
 include 'credentials.php';
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $table = $_POST['table'];
     $action = $_POST['action'];
@@ -47,6 +43,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "Creator: <input type='text' name='Creator'><br>";
                 echo "Based on a comic? [Y/N]: <input type='chr' name='Comic_based'><br>";
            }
+     if ($table == 'villains') {
+          if ($action == 'edit') {
+              echo "ID to edit: <input type='number' name='Supervillain_ID' required><br>";
+          }
+                  echo "Name: <input type='text' name='Name'><br>";
+                  echo "Alias: <input type='text' name='Alias'><br>";
+                  echo "Species: <input type='text' name='Species'><br>";
+        }
+  
+if ($table == 'tv_character') {
+    if ($action == 'insert') {
+        echo "Insert New TV Show ID: <input type='number' name='TV_Show_ID' required><br>";
+        echo "Insert New Character ID: <input type='number' name='ID' required><br>";
+    }
+}
+
+if ($table == 'tv_movie') {
+      if ($action == 'insert') {
+          echo "Insert New Movie ID: <input type='number' name='Movie_ID' required><br>";
+          echo "Insert New Character ID: <input type='number' name='ID' required><br>";
+     }
+ }
+
+
+
     echo "<input type='submit' value='Submit'>";
     echo "</form>";
 }

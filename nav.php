@@ -13,7 +13,8 @@ echo '<li><a href="superheroes.php">Superheroes</a></li>';
 echo '<li><a href="villains.php">Villains</a></li>';
 echo '<li><a href="movies.php">Movies</a></li>';
 echo '<li><a href="tv.php">TV Shows</a></li>';
-echo '<li><a href="tvmovies.php">TV Shows + Movies</a></li>';
+echo '<li><a href="tv_movie.php">Movies + Characters</a></li>';
+echo '<li><a href="tv_character.php">TV Shows + Characters</a></li>';
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
       echo '<li><a href="index.php">Edit/Insert Information</a></li>';
