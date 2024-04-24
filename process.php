@@ -95,10 +95,12 @@ if ($table == 'villains' && $action == 'insert') {
 if ($table == 'tv_character') {
     if ($action == 'insert') {
         
-        $stmt = $pdo->prepare("INSERT INTO TV_Shows_Superheroes (TV_Show_ID, ID) VALUES (?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO TV_Shows_Superheroes (TV_Show_ID, ID, role_description, season_count) VALUES (?, ?, ?, ?)");
         $stmt->execute([
             $_POST['TV_Show_ID'],
-            $_POST['ID']
+            $_POST['ID'],
+            $_POST['role_description'],
+            $_POST['season_count']
         ]);
         header("Location: tv_character.php"); 
         exit();
@@ -109,10 +111,13 @@ if ($table == 'tv_character') {
 if ($table == 'tv_movie') {
       if ($action == 'insert') {
 
-         $stmt = $pdo->prepare("INSERT INTO Movie_Superheroes (Movie_ID, ID) VALUES (?, ?)");
+         $stmt = $pdo->prepare("INSERT INTO Movie_Superheroes (Movie_ID, ID, role_description, Sequel_or_not) VALUES (?, ?, ?, ?)");
          $stmt->execute([
              $_POST['Movie_ID'],
-             $_POST['ID']
+             $_POST['ID'],
+             $_POST['role_description'],
+             $_POST['Sequel_or_not']
+
          ]);
          header("Location: tv_movie.php");
          exit();

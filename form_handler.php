@@ -56,6 +56,9 @@ if ($table == 'tv_character') {
     if ($action == 'insert') {
         echo "Insert New TV Show ID: <input type='number' name='TV_Show_ID' required><br>";
         echo "Insert New Character ID: <input type='number' name='ID' required><br>";
+        echo "Insert New Character's role: <input type='text' name='role_description' required><br>";
+        echo "Insert New Character's season count: <input type='number' name='season_count' required><br>";
+
     }
 }
 
@@ -63,6 +66,9 @@ if ($table == 'tv_movie') {
       if ($action == 'insert') {
           echo "Insert New Movie ID: <input type='number' name='Movie_ID' required><br>";
           echo "Insert New Character ID: <input type='number' name='ID' required><br>";
+          echo "Insert New Character's role: <input type='text' name='role_description' required><br>";
+          echo "Is the movie a sequel? [Y/N]: <input type='chr' name='Sequel_or_not' required><br>";
+          
      }
  }
 

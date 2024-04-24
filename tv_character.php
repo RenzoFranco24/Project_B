@@ -42,6 +42,8 @@ $result = $connection->query($sql);
           echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
           echo "<th>TV Show ID</th>";
           echo "<th>Character ID</th>";
+          echo "<th>Role</th>";
+          echo "<th>Seasons Appeared In</th>";
           if (isset($_SESSION['user_id'])) {
                    echo "<th>Delete</th>";
                }
@@ -52,6 +54,8 @@ $result = $connection->query($sql);
               echo "<tr   >";
               echo "<td>" . htmlspecialchars($row['TV_Show_ID']) . "</td>";
               echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['role_description']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['season_count']) . "</td>";              
               if (isset($_SESSION['user_id'])) {
                     echo "<td><a href='delete_tvjunc.php?id=" . $row['TV_Show_ID'] . "' onclick='return confirm(\"Are you sure you want to delete this reco    rd?    \");'>Delete</a></td>";
 

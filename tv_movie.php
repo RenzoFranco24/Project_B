@@ -41,6 +41,8 @@ if ($result) {
         echo "<table border='1' style='background-color:{$bg_color}; color:{$text};'><tr>";
         echo "<th>Movie ID</th>";
         echo "<th>Character ID</th>";
+        echo "<th>Role</th>";
+        echo "<th>Sequel?</th>";
         if (isset($_SESSION['user_id'])) {
                   echo "<th>Delete</th>";
               }
@@ -51,6 +53,8 @@ if ($result) {
             echo "<tr   >";
             echo "<td>" . htmlspecialchars($row['Movie_ID']) . "</td>";
             echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['role_description']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Sequel_or_not']) . "</td>";
             if (isset($_SESSION['user_id'])) {
                     echo "<td><a href='delete_movjunc.php?id=" . $row['Movie_ID'] . "' onclick='return confirm(\"Are you sure you want to delete this reco    rd?    \");'>Delete</a></td>";
                       
